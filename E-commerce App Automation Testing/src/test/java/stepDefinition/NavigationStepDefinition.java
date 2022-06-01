@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.openqa.selenium.WebDriver;
+
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,9 +17,11 @@ import pages.HomePage;
 public class NavigationStepDefinition {
 	
 	HomePage home;
-	
+	DriverOps driverOps;
+	WebDriver driver;
+
 	@Given ("User is on homepage")
-	public void user_is_on_homepage() throws InterruptedException {home = new HomePage();}
+	public void user_is_on_homepage() throws InterruptedException {home = new HomePage(driver, true);}
 	
 	@When ("User search for a product")
 	public void user_search_for_product() throws InterruptedException {home.doSearch();}
@@ -64,6 +69,10 @@ public class NavigationStepDefinition {
 	@Then ("Products with same tag appears") 
 	public void show_product_with_selected_tag() throws InterruptedException {assertEquals(home.getTagHeader(), "Products tagged with 'book'");}
 	
-	@After()
-	public void exitDriver() { try {home.exitDrive();} catch(Exception e) {}  }
+	@Before("@NavigationTest")
+	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+	  
+	  @After("@NavigationTest")
+	  public void exitDriver() { driverOps.exitDriver(driver);}
+	  
 }

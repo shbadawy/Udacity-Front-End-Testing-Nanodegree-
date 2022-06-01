@@ -14,7 +14,6 @@ public class LoginPage {
 	
 	public LoginPage (WebDriver driver) throws InterruptedException {
 		
-		globalVariables.setSystemProberty();
 		this.driver = driver;
 		
 		this.driver.navigate().to("https://demo.nopcommerce.com/login"); 

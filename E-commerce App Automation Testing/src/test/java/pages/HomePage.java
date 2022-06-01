@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,11 +13,9 @@ public class HomePage {
 	WebDriver driver ;
 	String selectedCategory;
 	
-	public HomePage() throws InterruptedException {
+	public HomePage(WebDriver driver, boolean navigateToHome) throws InterruptedException {
 		
-		globalVariables.setSystemProberty();
-		driver = new FirefoxDriver();
-		
+		this.driver = driver;
 		driver.navigate().to("https://demo.nopcommerce.com");
 		Thread.sleep(2000);
 		
@@ -28,9 +25,7 @@ public class HomePage {
 	
 	public HomePage(WebDriver driver) throws InterruptedException {
 		
-		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver");
 		this.driver = driver;
-		
 		PageFactory.initElements(this.driver, this);
 		
 	}

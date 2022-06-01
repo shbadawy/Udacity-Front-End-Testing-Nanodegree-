@@ -14,15 +14,14 @@ public class RegisterPage {
 	
 	WebDriver driver;
 	
-	public RegisterPage() throws InterruptedException {
+	public RegisterPage(WebDriver driver) throws InterruptedException {
 		
-		globalVariables.setSystemProberty();
-		driver = new FirefoxDriver();
+		this.driver = driver;
 		
-		driver.navigate().to("https://demo.nopcommerce.com/register"); 
+		this.driver.navigate().to("https://demo.nopcommerce.com/register"); 
 		Thread.sleep(2000);
 		
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(this.driver, this);
 		
 	}
 	
@@ -85,6 +84,6 @@ public class RegisterPage {
 
 	public void logout () {getLogoutButton().click();}
 	
-	public WebDriver getDriver() { return driver;}
+//	public WebDriver getDriver() { return driver;}
 	
 }

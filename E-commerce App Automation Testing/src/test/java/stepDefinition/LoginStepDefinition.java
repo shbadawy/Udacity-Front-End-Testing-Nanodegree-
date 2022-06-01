@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,13 +18,13 @@ public class LoginStepDefinition {
 	RegisterPage register;
 	LoginPage login;
 	WebDriver driver;
+	DriverOps driverOps;
 	
 	@Given("User registered successfully")
 	public void user_registered_successfully() throws InterruptedException {
 		
-		register = new RegisterPage();
+		register = new RegisterPage(driver);
 		register.addUserInformation();
-		driver = register.getDriver();
 		
 	}
 	
@@ -55,8 +56,11 @@ public class LoginStepDefinition {
 		
 	}
 	
-	@After 
-	public void close_browser() {try {login.getDriver().quit();} catch(Exception e) {}}
+	 @Before("@LoginTest")
+	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+	  
+	  @After("@LoginTest")
+	  public void exitDriver() { driverOps.exitDriver(driver); };
 	
 	
 

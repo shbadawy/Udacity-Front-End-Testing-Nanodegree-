@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,16 +18,17 @@ import pages.RegisterPage;
 
 public class CartStepDefinition {
 
+	DriverOps driverOps;
 	RegisterPage register;
 	WebDriver driver;
 	CartPage cart;
+	 
 	
 	@Given("User register successfully")
 	public void user_registered_successfully() throws InterruptedException {
 		
-		register = new RegisterPage();
+		register = new RegisterPage(driver);
 		register.addUserInformation();
-		driver = register.getDriver();
 		cart = new CartPage(driver);
 		
 	}
@@ -34,7 +36,7 @@ public class CartStepDefinition {
 	@Given("User select a category")
 	public void select_category() throws InterruptedException {
 		
-		cart = new CartPage();
+		cart = new CartPage(driver,true);
 		cart.selectCategory();
 		
 	}
@@ -70,8 +72,11 @@ public class CartStepDefinition {
 	  @Then ("The order is placed successfully")
 	  public void order_succeeded(){assertNotEquals(null, cart.getOrderMessage());}
 	  
-	  @After()
-	  public void exitDriver() { try {cart.getDriver().quit();} catch(Exception e) {}}
+	  @Before("@CartTest")
+	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+	  
+	  @After("@CartTest")
+	  public void exitDriver() { driverOps.exitDriver(driver); };
 		  
 	
 	  

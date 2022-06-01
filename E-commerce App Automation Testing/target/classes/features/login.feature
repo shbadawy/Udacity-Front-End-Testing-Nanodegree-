@@ -1,6 +1,7 @@
 #Author: shimaa.mohammed.badawy@gmail.com
 
 @Regression
+@LoginTest
 Feature: Test user login
 
 Scenario: Test user successful login

@@ -32,19 +32,15 @@ public class CartPage {
 	
 	public CartPage (WebDriver driver) {
 		
-		globalVariables.setSystemProberty();
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
 		
-		
 	}
 	
-	public CartPage () throws InterruptedException {
+	public CartPage (WebDriver driver, boolean navigateToHome) throws InterruptedException {
 		
-		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/main/resources/geckodriver");
-		driver = new FirefoxDriver();
-		
-		driver.navigate().to("https://demo.nopcommerce.com");
+		this.driver = driver;
+		this.driver.navigate().to("https://demo.nopcommerce.com");
 		Thread.sleep(2000);
 		PageFactory.initElements(this.driver, this);
 		

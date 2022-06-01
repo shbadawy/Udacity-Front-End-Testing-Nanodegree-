@@ -1,6 +1,7 @@
 #Author: shimaa.mohammed.badawy@gmail.com
 
 @Regression
+@NavigationTest
 Feature: Navigating throughout the website
 
 Scenario: Test search for a product

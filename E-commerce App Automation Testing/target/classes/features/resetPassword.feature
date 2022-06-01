@@ -1,6 +1,7 @@
 #Author: shimaa.mohammed.badawy@gmail.com
 
 @Regression
+@ResetPasswordTest
 Feature: Test reset password for registered user
 
 Scenario: Title of your scenario

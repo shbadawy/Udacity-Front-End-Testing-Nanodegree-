@@ -1,6 +1,7 @@
 #Author: shimaa.mohammed.badawy@gmail.com
 
 @Regression
+@RegisterTest
 Feature: Test user registeration
 
 Scenario: User registeration 

@@ -1,6 +1,7 @@
 #Author: shimaa.mohammed.badawy@gmail.com
 
 @Regression
+@CartTest
 Feature: Test different cart operation
 
 Scenario: Add to cart
