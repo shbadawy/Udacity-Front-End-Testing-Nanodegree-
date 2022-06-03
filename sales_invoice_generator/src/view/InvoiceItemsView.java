@@ -56,7 +56,7 @@ public class InvoiceItemsView extends JFrame implements ActionListener, ListSele
 	private JPanel createDeleteButtonsPanel;
 	private static JButton insertItemButton;
 	private static JButton deleteItemButton;
-	private static JButton saveButton;
+	static JButton saveButton;
 	private static JButton cancelButton;
 	private static FileOperations fileOp;
 

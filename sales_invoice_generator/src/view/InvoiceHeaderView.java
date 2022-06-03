@@ -351,6 +351,7 @@ public class InvoiceHeaderView extends JFrame implements ListSelectionListener, 
 			 
 
 			deleteInvoiceButton.setEnabled(true);
+			InvoiceItemsView.saveButton.setEnabled(true);
 	
 		 }
 		
