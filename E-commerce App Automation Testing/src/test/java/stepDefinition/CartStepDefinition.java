@@ -18,9 +18,8 @@ import pages.RegisterPage;
 
 public class CartStepDefinition {
 
-	DriverOps driverOps;
 	RegisterPage register;
-	WebDriver driver;
+	WebDriver driver = Hooks.driver; 
 	CartPage cart;
 	 
 	
@@ -36,6 +35,7 @@ public class CartStepDefinition {
 	@Given("User select a category")
 	public void select_category() throws InterruptedException {
 		
+		driver = Hooks.driver;
 		cart = new CartPage(driver,true);
 		cart.selectCategory();
 		
@@ -72,11 +72,11 @@ public class CartStepDefinition {
 	  @Then ("The order is placed successfully")
 	  public void order_succeeded(){assertNotEquals(null, cart.getOrderMessage());}
 	  
-	  @Before("@CartTest")
-	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
-	  
-	  @After("@CartTest")
-	  public void exitDriver() { driverOps.exitDriver(driver); };
+//	  @Before("@CartTest")
+//	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+//	  
+//	  @After("@CartTest")
+//	  public void exitDriver() { driverOps.exitDriver(driver); };
 		  
 	
 	  

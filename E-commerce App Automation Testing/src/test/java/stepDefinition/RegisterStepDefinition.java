@@ -14,11 +14,10 @@ import pages.RegisterPage;
 public class RegisterStepDefinition {
 	
 	RegisterPage register;
-	DriverOps driverOps;
-	WebDriver driver;
+	WebDriver driver = Hooks.driver;
 	
 	@Given("User is on the registeration page")
-	public void user_go_to_registeration_page() throws InterruptedException {register = new RegisterPage(driver);}
+	public void user_go_to_registeration_page() throws InterruptedException { register = new RegisterPage(driver);}
 	
 	@When("User enter registeration information and click register")
 	public void user_enter_info_and_register() throws InterruptedException {register.addUserInformation();}
@@ -27,10 +26,10 @@ public class RegisterStepDefinition {
 	@Then("The user registered succeessfully")
 	public void user_registered_successfuly() {assertEquals( "Your registration completed" , register.getRegisterationMessage());}
 	
-	 @Before("@RegisterTest")
-	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
-	  
-	  @After("@RegisterTest")
-	  public void exitDriver() { driverOps.exitDriver(driver); };
+//	 @Before("@RegisterTest")
+//	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+//	  
+//	  @After("@RegisterTest")
+//	  public void exitDriver() { driverOps.exitDriver(driver); };
 
 }

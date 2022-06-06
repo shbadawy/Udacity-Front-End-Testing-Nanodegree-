@@ -17,8 +17,7 @@ public class LoginStepDefinition {
 
 	RegisterPage register;
 	LoginPage login;
-	WebDriver driver;
-	DriverOps driverOps;
+	WebDriver driver = Hooks.driver;;
 	
 	@Given("User registered successfully")
 	public void user_registered_successfully() throws InterruptedException {
@@ -56,11 +55,11 @@ public class LoginStepDefinition {
 		
 	}
 	
-	 @Before("@LoginTest")
-	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
-	  
-	  @After("@LoginTest")
-	  public void exitDriver() { driverOps.exitDriver(driver); };
+//	 @Before("@LoginTest")
+//	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+//	  
+//	  @After("@LoginTest")
+//	  public void exitDriver() { driverOps.exitDriver(driver); };
 	
 	
 

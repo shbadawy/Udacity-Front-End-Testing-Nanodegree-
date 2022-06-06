@@ -13,7 +13,6 @@ public class ResetPage {
 	
 	public ResetPage(WebDriver driver) throws InterruptedException {
 		
-		globalVariables.setSystemProberty();
 		this.driver = driver;
 		
 		this.driver.navigate().to("https://demo.nopcommerce.com/passwordrecovery");

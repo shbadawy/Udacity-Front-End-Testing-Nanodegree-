@@ -17,8 +17,7 @@ import pages.HomePage;
 public class NavigationStepDefinition {
 	
 	HomePage home;
-	DriverOps driverOps;
-	WebDriver driver;
+	WebDriver driver = Hooks.driver;;
 
 	@Given ("User is on homepage")
 	public void user_is_on_homepage() throws InterruptedException {home = new HomePage(driver, true);}
@@ -69,10 +68,10 @@ public class NavigationStepDefinition {
 	@Then ("Products with same tag appears") 
 	public void show_product_with_selected_tag() throws InterruptedException {assertEquals(home.getTagHeader(), "Products tagged with 'book'");}
 	
-	@Before("@NavigationTest")
-	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
-	  
-	  @After("@NavigationTest")
-	  public void exitDriver() { driverOps.exitDriver(driver);}
+//	@Before("@NavigationTest")
+//	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
+//	  
+//	  @After("@NavigationTest")
+//	  public void exitDriver() { driverOps.exitDriver(driver);}
 	  
 }
