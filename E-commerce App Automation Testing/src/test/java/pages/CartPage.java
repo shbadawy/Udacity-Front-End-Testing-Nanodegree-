@@ -15,8 +15,6 @@ public class CartPage {
 	
 	private WebElement addToCartButton() {return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div[3]/div[2]/button[1]"));}
 	private WebElement messageBar() {return driver.findElement(By.xpath("/html/body/div[5]/div/p"));}
-	private WebElement addToWishlistButton() {return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div[3]/div[2]/button[3]"));}
-	private WebElement addToCompareListButton() {return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div[3]/div[2]/button[2]"));}
 	private WebElement cartButton() {return driver.findElement(By.xpath("//*[@id=\"topcartlink\"]"));}
 	private WebElement termsOfServiceCheckBox() {return driver.findElement(By.xpath("//*[@id=\"termsofservice\"]"));}
 	private WebElement checkoutButton() {return driver.findElement(By.xpath("//*[@id=\"checkout\"]"));}
@@ -53,20 +51,7 @@ public class CartPage {
 		Thread.sleep(2000);
 		
 	}
-	
-	public void addToWishlist () throws InterruptedException {
-		
-		addToWishlistButton().click();
-		Thread.sleep(1000);
-		
-	}
-	
-	public void addToComparList () throws InterruptedException {
-		
-		addToCompareListButton().click();
-		Thread.sleep(1000);
-		
-	}
+
 	
 	public void createOrder() throws InterruptedException {
 		
@@ -114,6 +99,4 @@ public class CartPage {
 	
 	public void selectCategory() {bookCategory().click();}
 	
-	public WebDriver getDriver() {return driver;}
-
 }

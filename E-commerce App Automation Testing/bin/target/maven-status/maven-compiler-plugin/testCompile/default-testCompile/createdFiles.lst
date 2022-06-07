@@ -1,0 +1,11 @@
+stepDefinition/NavigationStepDefinition.class
+pages/CartPage.class
+stepDefinition/LoginStepDefinition.class
+pages/ResetPage.class
+stepDefinition/CartStepDefinition.class
+pages/HomePage.class
+runners/TestRunner.class
+stepDefinition/RegisterStepDefinition.class
+pages/RegisterPage.class
+pages/LoginPage.class
+stepDefinition/ResetPasswordStepDefinition.class

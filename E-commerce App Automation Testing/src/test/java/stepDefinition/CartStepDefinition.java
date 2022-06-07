@@ -52,18 +52,6 @@ public class CartStepDefinition {
 	  public void  item_is_added_to_cart(){ assertEquals("The product has been added to your shopping cart", cart.getSuccessMessage()); }
 	  
 	  
-	  @When ("User adds a product to the wishlist")
-	  public void  user_add_to_wishlist () throws InterruptedException{cart.addToWishlist();}
-	  
-	  @Then ("Item is added to wishlist")
-	  public void  item_is_added_to_wishlist(){assertEquals("The product has been added to your wishlist", cart.getSuccessMessage());}
-	  
-	  
-	  @When ("User adds a product to the compare list")
-	  public void  user_add_to_comparelist() throws InterruptedException{ cart.addToComparList();}
-	  	  
-	  @Then ("Item is added to compare list")
-	  public void  item_is_added_to_comparelist(){ assertEquals("The product has been added to your product comparison", cart.getSuccessMessage());}
 	  
 	  @And ("Place an order")
 	  public void place_an_order() throws InterruptedException{cart.createOrder();}
@@ -71,12 +59,6 @@ public class CartStepDefinition {
 	  
 	  @Then ("The order is placed successfully")
 	  public void order_succeeded(){assertNotEquals(null, cart.getOrderMessage());}
-	  
-//	  @Before("@CartTest")
-//	  public void startDrive() {driverOps = new DriverOps(); this.driver = driverOps.startDriver();}
-//	  
-//	  @After("@CartTest")
-//	  public void exitDriver() { driverOps.exitDriver(driver); };
 		  
 	
 	  
