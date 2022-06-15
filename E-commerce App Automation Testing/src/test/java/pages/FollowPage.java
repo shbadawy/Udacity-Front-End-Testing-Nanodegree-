@@ -35,13 +35,38 @@ public class FollowPage {
 		
 	}
 	
-	public String getNewTabURL() {
+	public void youtube_click() throws InterruptedException {
 		
-		List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles());
-		//switch to new tab
-		driver.switchTo().window(browserTabs .get(1));
-		return driver.getCurrentUrl();
+		driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[4]/a")).click();
+		Thread.sleep(3000);
 		
 	}
+	
+	public void rss_click() throws InterruptedException {
+		
+		driver.findElement(By.xpath("/html/body/div[6]/div[4]/div[1]/div[4]/div[1]/ul/li[3]/a")).click();
+		Thread.sleep(3000);
+		
+	}
+	
+	
+	public String getNewTabURL(boolean openNewTab) {
+		
+		String url ;
+		if (openNewTab) {
+			
+			List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles());
+			//switch to new tab
+			driver.switchTo().window(browserTabs.get(1));
+			url = driver.getCurrentUrl();
+			driver.close();
+			driver.switchTo().window(browserTabs.get(0));
+			
+		}else {url = driver.getCurrentUrl();}
+		
+		return url;
+		
+	}
+	
 
 }

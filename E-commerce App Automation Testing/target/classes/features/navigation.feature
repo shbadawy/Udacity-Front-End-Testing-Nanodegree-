@@ -16,6 +16,7 @@ Then All prices are shown in Euro
   
 Scenario: Test change currency to USD
 Given User is on homepage
+And currency is Euro
 When User change currency to USD
 Then All prices are shown in USD  
 

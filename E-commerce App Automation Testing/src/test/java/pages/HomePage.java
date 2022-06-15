@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.PageFactory;
 
 import udacity.project2.globalVariables;
@@ -44,6 +45,7 @@ public class HomePage {
 	private WebElement flterResultProductImage() {return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div/div/div[1]/a/img"));}
     private WebElement bookTag() {return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div[3]/div[2]/div[1]/ul/li[3]"));}
     private WebElement tagHeader() throws InterruptedException { Thread.sleep(2000); return driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/div/div[1]/h1"));}
+    
     private WebElement currencyItem (char currency) { 
 		String baseXpath = "/html/body/div[6]/div[1]/div[1]/div[1]/div/select/option[";
 		if ( currency == 'E') {baseXpath = baseXpath + "2]";}
@@ -65,14 +67,21 @@ public class HomePage {
 	public WebElement searchResult() { return productImage(); }
 	
 	public void changeCurrencyTo(char currency) throws InterruptedException {
-		
+				
 		currencyMenu().click();
 		currencyItem(currency).click();
     	Thread.sleep(globalVariables.sleepTime);
+		    	
+	}
+	
+	public String getCurrentCurrency() { 
+		
+		String price = priceText().getText().replace(",", "");
+		price = price.substring(0,price.indexOf("."));
+		return price;
 		
 	}
 	
-	public String getCurrentCurrency() { return priceText().getText();}
 	public String getSelectedCategory() {return this.selectedCategory;}
 	
 	public void selectCategory() throws InterruptedException {
